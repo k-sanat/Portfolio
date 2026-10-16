@@ -1,0 +1,18 @@
+========================================================================
+HOW TO ADD YOUR REAL CERTIFICATE IMAGES HERE:
+========================================================================
+
+1. Save your certificate photos or screenshots into this exact folder:
+   C:\Users\hansd\.gemini\antigravity\scratch\portfolio\assets\certificates\
+
+2. Suggested image file names:
+   - cert-launched.jpg      (Your LaunchEd Cybersecurity Certificate)
+   - cert-istudio.jpg       (Your Istudio Internship Letter/Certificate)
+   - cert-vcodez.jpg        (Your VCodez ML Internship Certificate)
+   - cert-degree.jpg        (Your Anna University B.E. Degree Certificate)
+   - cert-magnion.jpg       (Your Magnion Tech Content Internship Certificate)
+   - cert-canva.jpg         (Your Canva Graphic Design Showcase)
+
+3. In index.html, look for the section with ID "certificates".
+   You can easily replace the placeholder div with:
+   <img src="assets/certificates/cert-launched.jpg" alt="LaunchEd Certificate" style="width: 100%; height: 100%; object-fit: cover;">

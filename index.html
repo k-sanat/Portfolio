@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal Portfolio - Web Developer, Designer & Problem Solver. Explore my projects, skills, and get in touch.">
-  <meta name="keywords" content="Portfolio, Web Developer, Frontend, Full Stack, Software Engineer, JavaScript, Projects">
-  <meta name="author" content="Alex Rivera">
+  <meta name="description" content="Sanat Kumar Hansda - Freelancer, Computer Science Engineer & MCA Cybersecurity Scholar. Explore my education, internships, certifications, and projects.">
+  <meta name="keywords" content="Sanat Kumar Hansda, Portfolio, Cybersecurity, MCA, Computer Science Engineer, Freelancer, Python, Machine Learning, Web Development, Jharkhand">
+  <meta name="author" content="Sanat Kumar Hansda">
 
   <!-- Open Graph / Social Sharing Metadata -->
-  <meta property="og:title" content="Alex Rivera | Developer Portfolio">
-  <meta property="og:description" content="Explore my projects, tech stack, and experience.">
+  <meta property="og:title" content="Sanat Kumar Hansda | Freelancer & Cybersecurity Scholar">
+  <meta property="og:description" content="Computer Science Engineer pursuing MCA in Cybersecurity at Manipal University. Explore my journey, internships, courses, and certifications.">
   <meta property="og:type" content="website">
 
-  <title>Alex Rivera | Creative Developer & Designer</title>
+  <title>Sanat Kumar Hansda | Freelancer & Cybersecurity Scholar</title>
 
-  <!-- Google Fonts: Space Grotesk & Inter -->
+  <!-- Google Fonts: Space Grotesk, Inter & Fira Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,12 +22,64 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-theme="cyan">
+<body data-theme="emerald">
 
-  <!-- Interactive Background Canvas (Constellation & Particle Mesh) -->
+  <!-- ========================================================
+       CYBER SECURITY BOOTLOADER / TECH SAVVY OPENING INTRO
+       ======================================================== -->
+  <div id="cyber-boot-screen" class="cyber-boot-screen" role="dialog" aria-label="Cyber System Initializing">
+    <div class="boot-matrix-scanlines"></div>
+    <div class="boot-corner-bracket top-left"></div>
+    <div class="boot-corner-bracket top-right"></div>
+    <div class="boot-corner-bracket bottom-left"></div>
+    <div class="boot-corner-bracket bottom-right"></div>
+
+    <!-- Quick Skip Button in Corner -->
+    <button id="boot-skip-btn" class="boot-skip-btn" title="Skip animation (or press ESC)">
+      <span>SKIP INTRO [ESC]</span> &rarr;
+    </button>
+
+    <div class="boot-center-hud">
+      <!-- Rotating Cyber HUD Ring with Sanat's Monogram -->
+      <div class="hud-ring-wrapper">
+        <div class="hud-ring outer-ring"></div>
+        <div class="hud-ring middle-ring"></div>
+        <div class="hud-core">
+          <span class="hud-logo-icon">🛡️</span>
+          <span class="hud-logo-text">&lt;Sanat.sec /&gt;</span>
+        </div>
+      </div>
+
+      <!-- System Diagnostic Terminal Log -->
+      <div class="boot-log-terminal">
+        <div class="boot-terminal-header">
+          <span class="boot-dot dot-red"></span>
+          <span class="boot-dot dot-yellow"></span>
+          <span class="boot-dot dot-green"></span>
+          <span class="boot-title-text">SEC-CORE v3.4 // BIOS DIAGNOSTIC</span>
+        </div>
+        <div class="boot-log-body" id="boot-log-body">
+          <div class="boot-log-line init">&gt; INITIALIZING SECURE ENVIRONMENT...</div>
+        </div>
+      </div>
+
+      <!-- Cyber Progress Bar & Status -->
+      <div class="boot-progress-wrap">
+        <div class="boot-progress-bar">
+          <div class="boot-progress-fill" id="boot-progress-fill"></div>
+        </div>
+        <div class="boot-progress-meta">
+          <span class="boot-status-text" id="boot-status-text">INITIALIZING SUBSYSTEMS...</span>
+          <span class="boot-percent-text" id="boot-percent-text">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Background Canvas (Cyber Constellation & Particle Mesh) -->
   <canvas id="bg-canvas"></canvas>
 
-  <!-- Background Ambient Glow Orbs -->
+  <!-- Ambient Cyber Glow Lighting -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
   <div class="ambient-glow glow-3"></div>
@@ -37,10 +89,11 @@
        ======================================================== -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="brand-logo" aria-label="Home">
+      <a href="#hero" class="brand-logo" aria-label="Sanat Kumar Hansda Home">
+        <img src="assets/images/profile.jpg" alt="Sanat Kumar Hansda" class="nav-mini-avatar" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); margin-right: 0.6rem;">
         <span class="logo-bracket">&lt;</span>
-        <span class="logo-name">Alex</span>
-        <span class="logo-accent">.dev</span>
+        <span class="logo-name">Sanat</span>
+        <span class="logo-accent">.sec</span>
         <span class="logo-bracket">/&gt;</span>
       </a>
 
@@ -49,26 +102,36 @@
         <ul class="nav-links">
           <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#experience" class="nav-link">Internships</a></li>
+          <li><a href="#certificates" class="nav-link">Certificates</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#resume-builder" class="nav-link">Resume</a></li>
           <li><a href="#terminal" class="nav-link">Terminal</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
-      <!-- Nav Controls: Theme Accent Picker & Mobile Hamburger -->
+      <!-- Nav Controls: Theme Switcher, Sound & Contact Button -->
       <div class="nav-actions">
-        <!-- Theme Color Picker Dots -->
-        <div class="theme-picker" title="Switch Accent Color">
-          <button class="color-dot dot-cyan active" data-color="cyan" aria-label="Cyan Theme"></button>
-          <button class="color-dot dot-violet" data-color="violet" aria-label="Violet Theme"></button>
-          <button class="color-dot dot-emerald" data-color="emerald" aria-label="Emerald Theme"></button>
+        <!-- Interactive Sound Effects Toggle -->
+        <button class="sound-toggle-btn" id="sound-toggle" title="Toggle Futuristic Cyber Audio Effects">
+          <span id="sound-icon">🔊</span>
+        </button>
+
+        <!-- Theme Accent Picker Dots -->
+        <div class="theme-picker" title="Switch Theme Color (Cyber Emerald, Tech Cyan, Neon Violet, Rose)">
+          <button class="color-dot dot-emerald active" data-color="emerald" aria-label="Emerald Cyber Theme"></button>
+          <button class="color-dot dot-cyan" data-color="cyan" aria-label="Cyan Tech Theme"></button>
+          <button class="color-dot dot-violet" data-color="violet" aria-label="Violet Matrix Theme"></button>
           <button class="color-dot dot-rose" data-color="rose" aria-label="Rose Theme"></button>
         </div>
 
-        <a href="#contact" class="btn btn-sm btn-primary nav-cta">Let's Talk</a>
+        <a href="https://wa.me/918122378449" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary nav-cta">
+          <span>WhatsApp Me</span>
+        </a>
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Mobile Menu Hamburger -->
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -84,75 +147,75 @@
          ======================================================== -->
     <section class="hero" id="hero">
       <div class="container hero-content">
-        <!-- Availability Beacon -->
-        <div class="badge-pill fade-in">
+        <!-- Live Status Badge (Click to Replay Boot Sequence) -->
+        <div class="badge-pill fade-in" id="reboot-trigger" title="Click to replay Cyber System Bootloader" style="cursor: pointer;">
           <span class="pulse-dot"></span>
-          <span>Available for New Projects & Roles</span>
+          <span>MCA Cybersecurity Scholar • Freelancer • Istudio Intern ⚡</span>
         </div>
 
         <!-- Hero Headline -->
         <h1 class="hero-title fade-in">
-          Building Digital <span class="gradient-text">Experiences</span> With Passion & Precision.
+          Hi, I'm <span class="gradient-text">Sanat Kumar Hansda</span>
         </h1>
 
-        <!-- Typing Animation Subtitle -->
+        <!-- Typewriter Subtitle -->
         <div class="hero-typewriter fade-in">
-          <span class="type-prefix">I am a </span>
+          <span class="type-prefix">Specializing in </span>
           <span class="typed-text" id="typed-text"></span>
           <span class="type-cursor">|</span>
         </div>
 
-        <!-- Short Description -->
+        <!-- Description -->
         <p class="hero-desc fade-in">
-          Hi, I'm <strong class="text-white">Alex Rivera</strong>. A creative developer focused on crafting clean, accessible, and high-performance web applications with modern design systems and smooth user experiences.
+          A multi-skilled Computer Science Engineering graduate currently pursuing an <strong>MCA in Cybersecurity at Manipal University</strong> and interning at <strong>Istudio</strong>. Passionate about cyber defense, machine learning, modern graphic design, and engineering intuitive digital solutions.
         </p>
 
-        <!-- CTA Buttons -->
+        <!-- Domain-Specific Primary Buttons -->
         <div class="hero-actions fade-in">
-          <a href="#projects" class="btn btn-primary">
-            <span>Explore Projects</span>
-            <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          <a href="https://github.com/k-sanat" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-github-profile">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
             </svg>
+            <span>My GitHub Profile</span>
           </a>
-          <a href="#terminal" class="btn btn-secondary">
-            <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h4a1 1 0 100-2h-4z" clip-rule="evenodd" />
+
+          <a href="https://www.linkedin.com/in/sanat-freelancer" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="btn-linkedin-profile">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
-            <span>Launch CLI</span>
+            <span>My LinkedIn Profile</span>
+          </a>
+
+          <a href="https://wa.me/918122378449" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="btn-whatsapp-chat">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>Chat on WhatsApp</span>
+          </a>
+
+          <a href="mailto:hansdaworks@gmail.com" class="btn btn-secondary" id="btn-email-me">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+            </svg>
+            <span>Send Email</span>
+          </a>
+
+          <a href="#resume-builder" class="btn btn-secondary">
+            <span>Live Resume Builder</span>
           </a>
         </div>
 
-        <!-- Social Icons Bar -->
-        <div class="social-bar fade-in">
-          <span class="social-label">Connect:</span>
-          <div class="social-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="mailto:alex.rivera.dev@example.com" class="social-link" aria-label="Email Me">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Tech Stack Pill Ticker -->
+        <!-- Tech & Discipline Badges -->
         <div class="tech-ticker-container fade-in">
-          <span class="ticker-heading">Core Tech:</span>
+          <span class="ticker-heading">Focus Areas:</span>
           <div class="tech-badges">
-            <span class="tech-pill">JavaScript ES6+</span>
-            <span class="tech-pill">HTML5 & CSS3</span>
-            <span class="tech-pill">React</span>
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">Tailwind CSS</span>
-            <span class="tech-pill">Git & GitHub</span>
-            <span class="tech-pill">REST APIs</span>
+            <span class="tech-pill">Cybersecurity (MCA)</span>
+            <span class="tech-pill">LaunchEd Certified</span>
+            <span class="tech-pill">Python Programming</span>
+            <span class="tech-pill">Machine Learning</span>
+            <span class="tech-pill">Canva Graphic Design</span>
+            <span class="tech-pill">Web Development</span>
+            <span class="tech-pill">Resume / CV Creation</span>
           </div>
         </div>
       </div>
@@ -164,89 +227,96 @@
     <section class="section about-section" id="about">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">// 01. ABOUT ME</span>
-          <h2 class="section-title">Turning Code Into Creative Solutions</h2>
+          <span class="section-tag">// 01. PROFILE & BIO</span>
+          <h2 class="section-title">About Me</h2>
           <div class="section-divider"></div>
         </div>
 
         <div class="about-grid">
-          <!-- Left: Profile Glass Card -->
+          <!-- Left: Profile Card with Real Photo -->
           <div class="about-visual">
             <div class="profile-card glass-panel">
               <div class="profile-avatar-wrap">
-                <!-- Visual Geometric Avatar Placeholder -->
                 <div class="avatar-glow"></div>
                 <div class="profile-avatar">
-                  <svg viewBox="0 0 120 120" class="avatar-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="60" cy="60" r="56" stroke="var(--primary)" stroke-width="3" stroke-dasharray="6 6" />
-                    <circle cx="60" cy="45" r="22" fill="var(--primary-20)" stroke="var(--primary)" stroke-width="2.5" />
-                    <path d="M28 98C28 80.327 42.327 66 60 66C77.673 66 92 80.327 92 98" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" />
-                    <circle cx="60" cy="45" r="8" fill="var(--primary)" />
-                  </svg>
+                  <img src="assets/images/profile.jpg" alt="Sanat Kumar Hansda" class="profile-avatar-img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                 </div>
               </div>
 
               <div class="profile-meta">
-                <h3 class="profile-name">Alex Rivera</h3>
-                <p class="profile-role">Frontend & Full-Stack Developer</p>
+                <h3 class="profile-name">Sanat Kumar Hansda</h3>
+                <p class="profile-role">Freelancer & Cybersecurity Scholar</p>
                 <div class="location-badge">
                   <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                   </svg>
-                  <span>San Francisco, CA / Remote</span>
+                  <span>Dhalbhumgarh, Jharkhand, India</span>
                 </div>
               </div>
 
-              <!-- Floating badge pills -->
+              <!-- Floating Badges -->
               <div class="floating-badge badge-top">
-                <span class="badge-icon">⚡</span>
-                <span>Fast Learner</span>
+                <span class="badge-icon">🛡️</span>
+                <span>Cyber Defense</span>
               </div>
               <div class="floating-badge badge-bottom">
-                <span class="badge-icon">🚀</span>
-                <span>Clean Code</span>
+                <span class="badge-icon">🎨</span>
+                <span>Creative Freelance</span>
               </div>
             </div>
           </div>
 
-          <!-- Right: Bio & Stats Counter -->
+          <!-- Right: Profile Narrative & Metrics -->
           <div class="about-content">
-            <h3 class="bio-title">Hello there! Welcome to my digital workspace.</h3>
+            <h3 class="bio-title">Freelancer & Engineering Scholar Passionate About Innovation</h3>
+            
+            <!-- Kept from user's original resume & refined professionally -->
             <p class="bio-p">
-              I am a passionate software developer who enjoys building intuitive, accessible, and fast web applications. My journey started with a curiosity for how web pages work behind the scenes, which quickly evolved into building full-featured web applications.
+              I am a multi-skilled enthusiast who is highly motivated to adapt to new environments and technologies. I am passionate about learning, collaborating, and building innovative solutions, which makes me a positive and hardworking individual. I believe in timely delivery, clear communication, and maintaining high-quality standards in my work.
             </p>
             <p class="bio-p">
-              I believe great software is where <strong>clean logic</strong> meets <strong>delightful user experience</strong>. Whether architecting interactive user interfaces or structuring robust back-end APIs, I focus on writing maintainable code and solving real problems.
+              With a solid foundation in <strong>Computer Science & Engineering (B.E.)</strong>, I am currently leveling up my expertise with an <strong>MCA in Cybersecurity at Manipal University</strong>, complemented by hands-on industry experience during my ongoing 6-month internship at <strong>Istudio</strong> and practical machine learning experience from <strong>VCodez</strong>.
             </p>
 
-            <!-- Metrics Counter Bar -->
+            <!-- Multilingual Capabilities -->
+            <div class="languages-box glass-panel">
+              <span class="box-title">Languages Known:</span>
+              <div class="language-tags">
+                <span class="lang-pill">English</span>
+                <span class="lang-pill">Hindi</span>
+                <span class="lang-pill">Santhali</span>
+                <span class="lang-pill">Bengali</span>
+                <span class="lang-pill">Tamil</span>
+              </div>
+            </div>
+
+            <!-- Metrics Counters -->
             <div class="stats-grid">
               <div class="stat-card glass-panel">
-                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-number" data-target="4">0</div>
                 <div class="stat-plus">+</div>
-                <div class="stat-label">Projects Completed</div>
+                <div class="stat-label">Internships & Roles</div>
               </div>
               <div class="stat-card glass-panel">
-                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-number" data-target="7">0</div>
                 <div class="stat-plus">+</div>
-                <div class="stat-label">Years Coding</div>
+                <div class="stat-label">Core Tech Skills</div>
               </div>
               <div class="stat-card glass-panel">
-                <div class="stat-number" data-target="450">0</div>
-                <div class="stat-plus">+</div>
-                <div class="stat-label">Git Commits</div>
+                <div class="stat-number" data-target="5">0</div>
+                <div class="stat-plus"></div>
+                <div class="stat-label">Languages Spoken</div>
               </div>
               <div class="stat-card glass-panel">
                 <div class="stat-number" data-target="100">0</div>
                 <div class="stat-plus">%</div>
-                <div class="stat-label">Dedication</div>
+                <div class="stat-label">Work Commitment</div>
               </div>
             </div>
 
-            <!-- Action buttons -->
             <div class="about-actions">
-              <a href="#contact" class="btn btn-primary">Work With Me</a>
-              <a href="#projects" class="btn btn-secondary">Browse Work</a>
+              <a href="https://wa.me/918122378449" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect on WhatsApp</a>
+              <a href="tel:+918122378449" class="btn btn-secondary">Call: +91 8122378449</a>
             </div>
           </div>
         </div>
@@ -254,150 +324,82 @@
     </section>
 
     <!-- ========================================================
-         SKILLS SECTION
+         EDUCATION & STUDIES COMPLETED
          ======================================================== -->
-    <section class="section skills-section" id="skills">
+    <section class="section education-section" id="education">
       <div class="container">
         <div class="section-header text-center">
-          <span class="section-tag">// 02. TECHNICAL ARSENAL</span>
-          <h2 class="section-title">Skills & Technologies</h2>
-          <p class="section-desc">Technologies and tools I use to bring ideas from concept to reality.</p>
+          <span class="section-tag">// 02. ACADEMIC FOUNDATION</span>
+          <h2 class="section-title">The Studies I Completed & Am Doing</h2>
+          <p class="section-desc">My academic journey from high school foundations to advanced engineering and cybersecurity postgraduation.</p>
           <div class="section-divider center"></div>
         </div>
 
-        <!-- Skills Filter Tabs -->
-        <div class="skills-tabs">
-          <button class="skill-tab-btn active" data-filter="all">All Skills</button>
-          <button class="skill-tab-btn" data-filter="frontend">Frontend</button>
-          <button class="skill-tab-btn" data-filter="backend">Backend & DB</button>
-          <button class="skill-tab-btn" data-filter="tools">Tools & DevOps</button>
-        </div>
-
-        <!-- Skills Grid -->
-        <div class="skills-grid" id="skills-grid">
-          <!-- Skill 1 -->
-          <div class="skill-card glass-panel" data-category="frontend">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">🌐</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">HTML5 & Semantic Web</h4>
-              <p class="skill-level">Advanced</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 95%;"></div>
+        <div class="timeline-grid">
+          <!-- Education Item 1: MCA Cybersecurity -->
+          <div class="timeline-card glass-panel highlight-border">
+            <div class="timeline-badge-year">2025 – Present</div>
+            <div class="timeline-body">
+              <div class="degree-tag-current">Currently Pursuing</div>
+              <h3 class="timeline-degree">Master of Computer Applications (MCA) in Cybersecurity</h3>
+              <h4 class="timeline-institution">Manipal University</h4>
+              <p class="timeline-details">
+                Advanced postgraduate specialization focusing on network security, threat modeling, ethical hacking, digital forensics, cryptography, and modern cyber defense frameworks.
+              </p>
             </div>
           </div>
 
-          <!-- Skill 2 -->
-          <div class="skill-card glass-panel" data-category="frontend">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">🎨</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">CSS3 & Modern Animations</h4>
-              <p class="skill-level">Advanced (Flexbox, Grid, Canvas)</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 90%;"></div>
-            </div>
-          </div>
-
-          <!-- Skill 3 -->
-          <div class="skill-card glass-panel" data-category="frontend">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">⚡</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">JavaScript (ES6+)</h4>
-              <p class="skill-level">Proficient (Async, DOM, APIs)</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 88%;"></div>
+          <!-- Education Item 2: Graduation B.E. CSE -->
+          <div class="timeline-card glass-panel">
+            <div class="timeline-badge-year">2021 – 2025</div>
+            <div class="timeline-body">
+              <div class="grade-pill">CGPA: 7.4</div>
+              <h3 class="timeline-degree">Bachelor of Engineering (B.E.) in Computer Science & Engineering</h3>
+              <h4 class="timeline-institution">Mount Zion College of Engineering and Technology (Anna University)</h4>
+              <p class="timeline-details">
+                Comprehensive four-year engineering curriculum covering data structures, algorithms, operating systems, database management (DBMS), Python, machine learning, and software engineering principles.
+              </p>
+              <div style="margin-top: 1rem;">
+                <a href="assets/certificates/education/anna-university-be-cse-provisional-degree.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                  <span>📄 View Degree Provisional (PDF)</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Skill 4 -->
-          <div class="skill-card glass-panel" data-category="frontend">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">⚛️</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">React & Component Architecture</h4>
-              <p class="skill-level">Intermediate / Advanced</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 82%;"></div>
-            </div>
-          </div>
-
-          <!-- Skill 5 -->
-          <div class="skill-card glass-panel" data-category="backend">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">🟢</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">Node.js & Express</h4>
-              <p class="skill-level">Intermediate (REST APIs, Auth)</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 78%;"></div>
+          <!-- Education Item 3: Senior Secondary -->
+          <div class="timeline-card glass-panel">
+            <div class="timeline-badge-year">2019 – 2021</div>
+            <div class="timeline-body">
+              <div class="grade-pill">CGPA: 8.5</div>
+              <h3 class="timeline-degree">Senior Secondary School (Class XII)</h3>
+              <h4 class="timeline-institution">E.D. Thomas Memorial Higher Secondary School, Kudikadu</h4>
+              <p class="timeline-details">
+                Completed higher secondary studies under the <strong>Tamil Nadu State Board</strong> with strong academic performance (8.5 CGPA), establishing analytical and scientific fundamentals.
+              </p>
+              <div style="margin-top: 1rem;">
+                <a href="assets/certificates/education/class-12-higher-secondary-marksheet.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                  <span>🖼️ View 12th Marksheet (JPG)</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Skill 6 -->
-          <div class="skill-card glass-panel" data-category="backend">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">🗄️</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">Databases (SQL & NoSQL)</h4>
-              <p class="skill-level">PostgreSQL, SQLite, MongoDB</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 75%;"></div>
-            </div>
-          </div>
-
-          <!-- Skill 7 -->
-          <div class="skill-card glass-panel" data-category="tools">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">🐙</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">Git & GitHub</h4>
-              <p class="skill-level">Version Control, Branching, CI</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 88%;"></div>
-            </div>
-          </div>
-
-          <!-- Skill 8 -->
-          <div class="skill-card glass-panel" data-category="tools">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">🚀</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">Deployment & Hosting</h4>
-              <p class="skill-level">GitHub Pages, Netlify, Vercel</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 85%;"></div>
-            </div>
-          </div>
-
-          <!-- Skill 9 -->
-          <div class="skill-card glass-panel" data-category="frontend">
-            <div class="skill-icon-wrap">
-              <span class="skill-icon">📱</span>
-            </div>
-            <div class="skill-info">
-              <h4 class="skill-name">Responsive & Mobile Design</h4>
-              <p class="skill-level">Cross-browser & Viewport Testing</p>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" style="width: 92%;"></div>
+          <!-- Education Item 4: Secondary School -->
+          <div class="timeline-card glass-panel">
+            <div class="timeline-badge-year">2018 – 2019</div>
+            <div class="timeline-body">
+              <div class="grade-pill">CGPA: 7.1</div>
+              <h3 class="timeline-degree">Secondary School (Class X)</h3>
+              <h4 class="timeline-institution">Ramakrishna Vivekananda Sarada Vidyapith, Fulpal</h4>
+              <p class="timeline-details">
+                Completed matriculation under the prestigious <strong>ICSE Board</strong> with a 7.1 CGPA, building foundational disciplines in mathematics, science, and English communication.
+              </p>
+              <div style="margin-top: 1rem;">
+                <a href="assets/certificates/education/class-10-icse-marksheet.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                  <span>🖼️ View 10th Marksheet (JPG)</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -405,57 +407,496 @@
     </section>
 
     <!-- ========================================================
-         INTERACTIVE TERMINAL / CLI PLAYGROUND
+         INTERNSHIPS & WORK EXPERIENCE
          ======================================================== -->
-    <section class="section terminal-section" id="terminal">
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 03. PROFESSIONAL JOURNEY</span>
+          <h2 class="section-title">Internships & Work Experience</h2>
+          <p class="section-desc">Hands-on industry internships, real-world project engagements, and freelance design deliverables.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="experience-grid">
+          <!-- Internship 1: Istudio (Current) -->
+          <div class="experience-card glass-panel highlight-border">
+            <div class="exp-header">
+              <div>
+                <span class="exp-status-pill">Active / Ongoing</span>
+                <h3 class="exp-role">Tech & Cybersecurity Intern</h3>
+                <h4 class="exp-company">Istudio</h4>
+              </div>
+              <div class="exp-time">Oct 2026 – Present (6 Months)</div>
+            </div>
+            <ul class="exp-points">
+              <li>Engaging in an intensive 6-month hands-on industry internship program.</li>
+              <li>Collaborating with senior technical teams on system security, digital architecture, and solution testing.</li>
+              <li>Applying practical problem solving to real-world software workflows and operational infrastructure.</li>
+            </ul>
+            <div style="margin-top: 0.5rem;">
+              <a href="assets/certificates/offer-letters/ethical-hacking-internship-offer.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                <span>📄 View Offer / Appointment Letter (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Internship 2: Freelance Designer & Specialist -->
+          <div class="experience-card glass-panel">
+            <div class="exp-header">
+              <div>
+                <span class="exp-status-pill completed">Self-Employed</span>
+                <h3 class="exp-role">Freelance Designer & Data Entry Specialist</h3>
+                <h4 class="exp-company">Freelance / Remote</h4>
+              </div>
+              <div class="exp-time">January 2026 – Present</div>
+            </div>
+            <ul class="exp-points">
+              <li>Crafting modern social media creatives, promotional posters, and branding banners using Canva.</li>
+              <li>Designing professional, ATS-compliant Resumes and CVs tailored for student and professional clients.</li>
+              <li>Delivering high-accuracy data entry, document structuring, and typing in MS Word & MS Excel.</li>
+              <li>Providing basic web and digital solutions with a 100% on-time delivery commitment.</li>
+            </ul>
+          </div>
+
+          <!-- Internship 3: Machine Learning Intern at VCodez -->
+          <div class="experience-card glass-panel">
+            <div class="exp-header">
+              <div>
+                <span class="exp-status-pill completed">Completed</span>
+                <h3 class="exp-role">Machine Learning Intern</h3>
+                <h4 class="exp-company">VCodez</h4>
+              </div>
+              <div class="exp-time">March 2025 – June 2025</div>
+            </div>
+            <ul class="exp-points">
+              <li>Analyzed and preprocessed diverse datasets using Python, Pandas, and data wrangling workflows.</li>
+              <li>Engineered and trained baseline machine learning models for classification and pattern recognition.</li>
+              <li>Mastered practical data cleaning, outlier detection, model training, and performance evaluation metrics.</li>
+            </ul>
+            <div style="margin-top: 0.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="assets/certificates/internships/vcodez-ml-internship-completion.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                <span>📄 View Internship Certificate (PDF)</span>
+              </a>
+              <a href="assets/certificates/courses/vcodez-project-completion.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                <span>📄 View Project Certificate (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Internship 4: Content Writer Intern at Magnion Technology -->
+          <div class="experience-card glass-panel">
+            <div class="exp-header">
+              <div>
+                <span class="exp-status-pill completed">Completed</span>
+                <h3 class="exp-role">Content Writer Intern</h3>
+                <h4 class="exp-company">Magnion Technology</h4>
+              </div>
+              <div class="exp-time">March 2023 – May 2023</div>
+            </div>
+            <ul class="exp-points">
+              <li>Conducted in-depth research on tourist destinations across India for digital publishing platforms.</li>
+              <li>Authored engaging, well-structured, and SEO-friendly articles and informational content.</li>
+              <li>Honed professional research, storytelling, and structured communication under tight delivery deadlines.</li>
+            </ul>
+            <div style="margin-top: 0.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="assets/certificates/internships/magnion-content-internship-completion.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                <span>📄 View Completion Certificate (PDF)</span>
+              </a>
+              <a href="assets/certificates/offer-letters/magnion-content-internship-offer.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                <span>📄 View Offer Letter (PDF)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CERTIFICATES & COURSES SECTION (UPLOAD-READY)
+         ======================================================== -->
+    <section class="section cert-section" id="certificates">
       <div class="container">
         <div class="section-header text-center">
-          <span class="section-tag">// 03. INTERACTIVE CLI</span>
-          <h2 class="section-title">Developer Terminal</h2>
-          <p class="section-desc">Test drive my interactive terminal right from your browser. Type a command or click a chip below.</p>
+          <span class="section-tag">// 04. CREDENTIALS & CERTIFICATIONS</span>
+          <h2 class="section-title">Certifications & Completed Courses</h2>
+          <p class="section-desc">
+            Verified credentials from recognized universities, institutes, and internships.
+          </p>
           <div class="section-divider center"></div>
         </div>
 
-        <!-- Terminal Window Mockup -->
-        <div class="terminal-window glass-panel">
-          <!-- Terminal Title Bar -->
-          <div class="terminal-bar">
-            <div class="window-buttons">
-              <span class="win-btn close"></span>
-              <span class="win-btn minimize"></span>
-              <span class="win-btn expand"></span>
+        <!-- Interactive Search & Filter Toolbar -->
+        <div class="cert-search-container glass-panel">
+          <div class="cert-search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="cert-search-input" class="cert-search-input" placeholder="Search by certificate title, technology, issuer (e.g. Kali, IBM, Python, ICSE, Web)..." autocomplete="off" spellcheck="false">
+            <button id="cert-search-clear" class="search-clear-btn" title="Clear search">&times;</button>
+          </div>
+          <div class="cert-search-meta">
+            <span class="search-count-badge" id="search-count-badge">Showing all 14 credentials</span>
+          </div>
+        </div>
+
+        <!-- Certificate Filter Tabs -->
+        <div class="cert-filters">
+          <button class="cert-filter-btn active" data-filter="all">All Credentials (14)</button>
+          <button class="cert-filter-btn" data-filter="cyber">Cybersecurity</button>
+          <button class="cert-filter-btn" data-filter="ai">AI & Machine Learning</button>
+          <button class="cert-filter-btn" data-filter="internship">Internships & Offers</button>
+          <button class="cert-filter-btn" data-filter="academic">Academic & Degrees</button>
+        </div>
+
+        <!-- Certificate Showcase Grid -->
+        <div class="certs-grid" id="certs-grid">
+          <!-- Cert 1: IBM Cybersecurity with Kali Linux -->
+          <div class="cert-card glass-panel interactive-card" data-category="cyber" data-title="IBM Cybersecurity with Kali Linux penetration testing ethical hacking">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="ibmkali" title="Click to view certificate">
+              <img src="assets/certificates/courses/ibm-cybersecurity-kali-linux.jpg" alt="IBM Cybersecurity with Kali Linux" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">IBM Certified</span>
             </div>
-            <div class="terminal-title">
-              <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h4a1 1 0 100-2h-4z" clip-rule="evenodd" />
-              </svg>
-              <span>guest@alex-rivera-portfolio: ~</span>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Cybersecurity • IBM</span>
+              <h3 class="cert-title">IBM: Cybersecurity with Kali Linux</h3>
+              <p class="cert-issuer-name">Issued by: IBM</p>
+              <p class="cert-desc">
+                Specialized credential in hands-on penetration testing, ethical hacking, vulnerability identification, and security tools using Kali Linux.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="ibmkali" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/courses/ibm-cybersecurity-kali-linux.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
             </div>
-            <button class="terminal-clear-btn" id="terminal-clear" title="Clear Terminal">Clear</button>
           </div>
 
-          <!-- Terminal Output Body -->
-          <div class="terminal-body" id="terminal-output">
-            <div class="term-line term-intro">Welcome to Alex's interactive CLI portfolio v2.4.0.</div>
-            <div class="term-line term-hint">Type <span class="term-highlight">'help'</span> to see available commands or click the shortcut chips below!</div>
-            <div class="term-line">---------------------------------------------------------</div>
+          <!-- Cert 2: IBM Cybersecurity Fundamentals -->
+          <div class="cert-card glass-panel interactive-card" data-category="cyber" data-title="IBM Cybersecurity Fundamentals threat intelligence network cryptography">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="ibmcyber" title="Click to view certificate">
+              <img src="assets/certificates/courses/ibm-cybersecurity-fundamentals.jpg" alt="IBM Cybersecurity Fundamentals" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">IBM Certified</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Cybersecurity • IBM</span>
+              <h3 class="cert-title">IBM: Cybersecurity Fundamentals</h3>
+              <p class="cert-issuer-name">Issued by: IBM</p>
+              <p class="cert-desc">
+                Foundational credential verifying knowledge of threat landscape, cryptography, network security concepts, and incident response architecture.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="ibmcyber" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/courses/ibm-cybersecurity-fundamentals.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- Terminal Input Row -->
-          <div class="terminal-input-row">
-            <span class="term-prompt">alex@portfolio:~$</span>
-            <input type="text" id="terminal-input" class="term-input" placeholder="Type a command (e.g. help, skills, projects)..." autocomplete="off" spellcheck="false">
+          <!-- Cert 3: LaunchEd Cybersecurity Professional Course -->
+          <div class="cert-card glass-panel interactive-card" data-category="cyber" data-title="LaunchEd Cybersecurity Professional Course defense vulnerability network">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="launched" title="Click to view certificate">
+              <img src="assets/certificates/courses/launched-cybersecurity-training.jpg" alt="LaunchEd Cybersecurity Professional Course" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">Verified</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Cybersecurity Course</span>
+              <h3 class="cert-title">LaunchEd: Cybersecurity Professional Course</h3>
+              <p class="cert-issuer-name">Issued by: LaunchEd</p>
+              <p class="cert-desc">
+                Comprehensive training covering cybersecurity fundamentals, network defense strategies, vulnerability concepts, and digital threat prevention.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="launched" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/courses/launched-cybersecurity-training.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- Preset Clickable Command Chips -->
-          <div class="terminal-quick-chips">
-            <span class="chips-label">Quick Commands:</span>
-            <button class="chip-btn" data-cmd="about">about</button>
-            <button class="chip-btn" data-cmd="skills">skills</button>
-            <button class="chip-btn" data-cmd="projects">projects</button>
-            <button class="chip-btn" data-cmd="contact">contact</button>
-            <button class="chip-btn" data-cmd="help">help</button>
-            <button class="chip-btn" data-cmd="clear">clear</button>
+          <!-- Cert 4: Ethical Hacking Internship Offer Letter -->
+          <div class="cert-card glass-panel interactive-card" data-category="cyber" data-title="Ethical Hacking Internship Offer Letter cybersecurity industry selection">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="ethicaloffer" title="Click to view offer letter">
+              <img src="assets/certificates/offer-letters/ethical-hacking-internship-offer.jpg" alt="Ethical Hacking Internship Offer Letter" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon active-ribbon">Offer Letter</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Cybersecurity • Internship</span>
+              <h3 class="cert-title">Ethical Hacking Internship Offer Letter</h3>
+              <p class="cert-issuer-name">Technical Offer & Selection</p>
+              <p class="cert-desc">
+                Official offer letter acknowledging selection for ethical hacking and tech security internship engagement.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="ethicaloffer" style="flex: 1;">
+                  <span>🔍 View Offer Letter</span>
+                </button>
+                <a href="assets/certificates/offer-letters/ethical-hacking-internship-offer.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 5: IBM Artificial Intelligence -->
+          <div class="cert-card glass-panel interactive-card" data-category="ai" data-title="IBM Artificial Intelligence AI machine learning deep learning neural">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="ibmai" title="Click to view certificate">
+              <img src="assets/certificates/courses/ibm-artificial-intelligence.jpg" alt="IBM Artificial Intelligence" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">IBM Certified</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">AI & Machine Learning • IBM</span>
+              <h3 class="cert-title">IBM: Artificial Intelligence Credential</h3>
+              <p class="cert-issuer-name">Issued by: IBM</p>
+              <p class="cert-desc">
+                Official certification validating foundational concepts in Artificial Intelligence, machine learning algorithms, deep neural concepts, and modern AI use cases.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="ibmai" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/courses/ibm-artificial-intelligence.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 6: VCodez Machine Learning Internship Completion -->
+          <div class="cert-card glass-panel interactive-card" data-category="ai" data-title="VCodez Machine Learning Internship Completion python pandas datasets">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="vcodez" title="Click to view certificate">
+              <img src="assets/certificates/internships/vcodez-ml-internship-completion.jpg" alt="VCodez ML Internship Completion" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">Completed</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Machine Learning • Internship</span>
+              <h3 class="cert-title">VCodez: ML Internship Completion</h3>
+              <p class="cert-issuer-name">Issued by: VCodez</p>
+              <p class="cert-desc">
+                Certificate of completion honoring data analysis, dataset preprocessing, outlier evaluation, and Python predictive model development.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="vcodez" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/internships/vcodez-ml-internship-completion.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 7: VCodez Machine Learning Project Completion -->
+          <div class="cert-card glass-panel interactive-card" data-category="ai" data-title="VCodez ML Project Completion python data science pipeline">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="vcodezproj" title="Click to view certificate">
+              <img src="assets/certificates/courses/vcodez-project-completion.jpg" alt="VCodez ML Project Completion" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">Verified</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">AI Project • VCodez</span>
+              <h3 class="cert-title">VCodez: Project Completion Certificate</h3>
+              <p class="cert-issuer-name">Issued by: VCodez</p>
+              <p class="cert-desc">
+                Credential awarded upon the successful delivery and defense of an end-to-end Python machine learning data science project.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="vcodezproj" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/courses/vcodez-project-completion.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 8: Anna University B.E. CSE Provisional Degree -->
+          <div class="cert-card glass-panel interactive-card" data-category="academic" data-title="Anna University B.E. CSE Provisional Degree graduation computer science engineering">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="degree" title="Click to view degree provisional">
+              <img src="assets/certificates/education/anna-university-be-cse-provisional-degree.jpg" alt="Anna University Provisional Degree" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">Graduated</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Degree Certificate • Anna University</span>
+              <h3 class="cert-title">B.E. CSE Provisional Degree</h3>
+              <p class="cert-issuer-name">Mount Zion College / Anna University</p>
+              <p class="cert-desc">
+                Official Provisional Degree Certificate for Bachelor of Engineering in Computer Science and Engineering with a graduating 7.4 CGPA.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="degree" style="flex: 1;">
+                  <span>🔍 View Degree</span>
+                </button>
+                <a href="assets/certificates/education/anna-university-be-cse-provisional-degree.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 9: Class 12 Higher Secondary Marksheet (JPG) -->
+          <div class="cert-card glass-panel interactive-card" data-category="academic" data-title="Class XII 12th Higher Secondary Marksheet 8.5 CGPA Tamil Nadu Board ED Thomas">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="twelfth" title="Click to view marksheet">
+              <img src="assets/certificates/education/class-12-higher-secondary-marksheet.jpg" alt="12th Marksheet - E.D. Thomas Memorial" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">8.5 CGPA</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Academic • Tamil Nadu Board</span>
+              <h3 class="cert-title">Class XII Marksheet (8.5 CGPA)</h3>
+              <p class="cert-issuer-name">E.D. Thomas Memorial Higher Secondary School</p>
+              <p class="cert-desc">
+                Official Higher Secondary Examination marksheet certifying 8.5 CGPA under the Tamil Nadu State Board.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="twelfth" style="flex: 1;">
+                  <span>🔍 View Marksheet</span>
+                </button>
+                <a href="assets/certificates/education/class-12-higher-secondary-marksheet.jpg" download class="btn btn-sm btn-secondary" title="Download Image">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 10: Class 10 ICSE Marksheet (JPG) -->
+          <div class="cert-card glass-panel interactive-card" data-category="academic" data-title="Class X 10th ICSE Marksheet 7.1 CGPA Ramakrishna Vivekananda Sarada Vidyapith">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="tenth" title="Click to view marksheet">
+              <img src="assets/certificates/education/class-10-icse-marksheet.jpg" alt="10th ICSE Marksheet - Ramakrishna Vidyapith" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">7.1 CGPA</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Academic • ICSE Board</span>
+              <h3 class="cert-title">Class X ICSE Marksheet (7.1 CGPA)</h3>
+              <p class="cert-issuer-name">Ramakrishna Vivekananda Sarada Vidyapith</p>
+              <p class="cert-desc">
+                Official ICSE board certificate and statement of marks with 7.1 CGPA.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="tenth" style="flex: 1;">
+                  <span>🔍 View Marksheet</span>
+                </button>
+                <a href="assets/certificates/education/class-10-icse-marksheet.jpg" download class="btn btn-sm btn-secondary" title="Download Image">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 11: Magnion Technologies Content Internship Completion -->
+          <div class="cert-card glass-panel interactive-card" data-category="internship" data-title="Magnion Technologies Content Writing Internship Completion tourist research articles">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="magnion" title="Click to view certificate">
+              <img src="assets/certificates/internships/magnion-content-internship-completion.jpg" alt="Magnion Content Internship" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">Completed</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Internship Completion</span>
+              <h3 class="cert-title">Magnion Tech: Content Writer Intern</h3>
+              <p class="cert-issuer-name">Issued by: Magnion Technology</p>
+              <p class="cert-desc">
+                Certificate honoring research across tourist destinations in India and digital content delivery under strict deadlines.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="magnion" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/internships/magnion-content-internship-completion.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 12: Magnion Technologies Offer Letter -->
+          <div class="cert-card glass-panel interactive-card" data-category="internship" data-title="Magnion Technologies Content Internship Offer Letter appointment selection">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="magnionoffer" title="Click to view offer letter">
+              <img src="assets/certificates/offer-letters/magnion-content-internship-offer.jpg" alt="Magnion Offer Letter" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon active-ribbon">Offer Letter</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Offer Letter</span>
+              <h3 class="cert-title">Magnion Tech: Internship Offer Letter</h3>
+              <p class="cert-issuer-name">Issued by: Magnion Technology</p>
+              <p class="cert-desc">
+                Official offer and appointment letter acknowledging onboarding into the content and research team.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="magnionoffer" style="flex: 1;">
+                  <span>🔍 View Offer Letter</span>
+                </button>
+                <a href="assets/certificates/offer-letters/magnion-content-internship-offer.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 13: Technical Training Completion -->
+          <div class="cert-card glass-panel interactive-card" data-category="internship" data-title="Technical Training Completion Credential software engineering practical">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="techtraining" title="Click to view certificate">
+              <img src="assets/certificates/internships/technical-training-completion.jpg" alt="Technical Training Completion" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">Verified</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Technical Training</span>
+              <h3 class="cert-title">Technical Training Completion Credential</h3>
+              <p class="cert-issuer-name">Professional Engineering Program</p>
+              <p class="cert-desc">
+                Official certification validating completion of intensive technical development and software training modules.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="techtraining" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/internships/technical-training-completion.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 14: Coincent Web Development Course -->
+          <div class="cert-card glass-panel interactive-card" data-category="academic" data-title="Coincent Web Development Certification HTML CSS JavaScript responsive">
+            <div class="cert-thumbnail-wrap view-cert-modal" data-cert="coincent" title="Click to view certificate">
+              <img src="assets/certificates/courses/coincent-web-development.jpg" alt="Coincent Web Development" class="cert-thumb-img">
+              <div class="thumb-overlay"><span class="overlay-icon">🔍</span><span>Click to View</span></div>
+              <span class="cert-ribbon">Course Completion</span>
+            </div>
+            <div class="cert-info">
+              <span class="cert-cat-badge">Web Development • Coincent</span>
+              <h3 class="cert-title">Coincent: Web Development Certification</h3>
+              <p class="cert-issuer-name">Issued by: Coincent</p>
+              <p class="cert-desc">
+                Verified certificate of course completion in modern web application development, responsive design, and frontend architecture.
+              </p>
+              <div class="cert-actions-row">
+                <button class="btn btn-sm btn-primary view-cert-modal" data-cert="coincent" style="flex: 1;">
+                  <span>🔍 View Certificate</span>
+                </button>
+                <a href="assets/certificates/courses/coincent-web-development.pdf" download class="btn btn-sm btn-secondary" title="Download Original PDF">
+                  <span>⬇️</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -467,165 +908,112 @@
     <section class="section projects-section" id="projects">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">// 04. PORTFOLIO WORK</span>
-          <h2 class="section-title">Featured Projects</h2>
-          <p class="section-desc">A selection of recent projects demonstrating problem solving, responsive UI, and clean architectures.</p>
+          <span class="section-tag">// 05. DEMONSTRATED WORK</span>
+          <h2 class="section-title">Projects & Deliverables</h2>
+          <p class="section-desc">Key projects spanning machine learning, web portals, creative social media designs, and cybersecurity tools.</p>
           <div class="section-divider"></div>
         </div>
 
-        <!-- Project Filter Buttons -->
-        <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
-          <button class="filter-btn" data-filter="frontend">Frontend / UI</button>
-          <button class="filter-btn" data-filter="tools">Dev Tools</button>
-        </div>
-
-        <!-- Projects Grid -->
         <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card glass-panel" data-category="fullstack">
+          <!-- Project 1: College Symposium Website -->
+          <div class="project-card glass-panel" data-category="web">
             <div class="project-visual">
               <div class="project-mockup mockup-task">
                 <div class="mockup-header">
                   <div class="mockup-dots"><span></span><span></span><span></span></div>
-                  <span class="mockup-url">devflow-app.local</span>
+                  <span class="mockup-url">symposium-portal.edu</span>
                 </div>
                 <div class="mockup-body">
                   <div class="mockup-kanban">
-                    <div class="kanban-col"><div class="kanban-card"></div><div class="kanban-card"></div></div>
-                    <div class="kanban-col"><div class="kanban-card highlight"></div></div>
+                    <div class="kanban-col"><div class="kanban-card highlight"></div><div class="kanban-card"></div></div>
                     <div class="kanban-col"><div class="kanban-card"></div></div>
+                    <div class="kanban-col"><div class="kanban-card highlight"></div></div>
                   </div>
                 </div>
               </div>
-              <span class="project-badge">Featured</span>
+              <span class="project-badge">College Event</span>
             </div>
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-category">Full-Stack Web App</span>
-                <span class="project-year">2026</span>
+                <span class="project-category">Web Portal & Event System</span>
+                <span class="project-year">B.E. Engineering</span>
               </div>
-              <h3 class="project-title">DevFlow: Agile Kanban & Workflow Hub</h3>
+              <h3 class="project-title">Website for College Symposium</h3>
               <p class="project-desc">
-                A collaborative task management application featuring drag-and-drop workflow boards, milestone tracking, and state persistence with real-time feedback.
-              </p>
-              <div class="project-tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">React</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">Local Storage</span>
-              </div>
-              <div class="project-links">
-                <button class="btn-link view-modal-btn" data-project="devflow">
-                  <span>View Details</span>
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
-                </button>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
-                  <span>Code</span>
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card glass-panel" data-category="frontend">
-            <div class="project-visual">
-              <div class="project-mockup mockup-weather">
-                <div class="mockup-header">
-                  <div class="mockup-dots"><span></span><span></span><span></span></div>
-                  <span class="mockup-url">weather-pulse.io</span>
-                </div>
-                <div class="mockup-body">
-                  <div class="mockup-weather-content">
-                    <div class="weather-temp">72°F</div>
-                    <div class="weather-sun">☀️</div>
-                    <div class="weather-bars"><span></span><span></span><span></span><span></span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-category">Frontend & API Integration</span>
-                <span class="project-year">2026</span>
-              </div>
-              <h3 class="project-title">WeatherPulse: Live Meteorological Dashboard</h3>
-              <p class="project-desc">
-                Real-time weather tracking application with interactive geolocation search, dynamic background atmosphere changes, 7-day forecasting, and UV index meters.
+                Designed and deployed a responsive event website for the college departmental symposium, facilitating student registration, event schedules, rules, and participant coordination.
               </p>
               <div class="project-tags">
                 <span class="tag">HTML5 / CSS3</span>
-                <span class="tag">Async JavaScript</span>
-                <span class="tag">Weather API</span>
-                <span class="tag">Chart.js</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Responsive UI</span>
+                <span class="tag">Event Registration</span>
               </div>
               <div class="project-links">
-                <button class="btn-link view-modal-btn" data-project="weatherpulse">
+                <button class="btn-link view-project-btn" data-project="symposium">
                   <span>View Details</span>
                   <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
                 </button>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
-                  <span>Code</span>
+                <a href="https://github.com/k-sanat" target="_blank" rel="noopener noreferrer" class="btn-link">
+                  <span>My GitHub Profile</span>
                   <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Project 3 -->
-          <div class="project-card glass-panel" data-category="tools">
+          <!-- Project 2: Machine Learning Dataset Analysis -->
+          <div class="project-card glass-panel" data-category="ml">
             <div class="project-visual">
               <div class="project-mockup mockup-code">
                 <div class="mockup-header">
                   <div class="mockup-dots"><span></span><span></span><span></span></div>
-                  <span class="mockup-url">gitmaster-cli.sh</span>
+                  <span class="mockup-url">ml_pipeline.py</span>
                 </div>
                 <div class="mockup-body">
                   <div class="mockup-code-lines">
-                    <span class="code-line"><span class="c-kw">$</span> git init</span>
-                    <span class="code-line"><span class="c-str">Initialized empty repository</span></span>
-                    <span class="code-line"><span class="c-kw">$</span> git status <span class="c-fn">--short</span></span>
+                    <span class="code-line"><span class="c-kw">import</span> pandas <span class="c-kw">as</span> pd</span>
+                    <span class="code-line"><span class="c-kw">from</span> sklearn.model_selection <span class="c-kw">import</span> train_test_split</span>
+                    <span class="code-line">model.fit(X_train, y_train)</span>
                   </div>
                 </div>
               </div>
+              <span class="project-badge">VCodez Intern</span>
             </div>
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-category">Developer Tooling</span>
-                <span class="project-year">2026</span>
+                <span class="project-category">Machine Learning & Data Science</span>
+                <span class="project-year">Python</span>
               </div>
-              <h3 class="project-title">GitMaster: Git Workflow & Cheatsheet GUI</h3>
+              <h3 class="project-title">ML Predictive Data Analysis Pipeline</h3>
               <p class="project-desc">
-                An interactive visual guide and sandbox that visualizes Git branches, commits, merges, and rebases in real-time to help beginners master version control.
+                Built and trained predictive machine learning models during the VCodez internship. Cleaned raw datasets, addressed missing values, extracted features, and evaluated model accuracy.
               </p>
               <div class="project-tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">SVG Visualizer</span>
-                <span class="tag">Git CLI</span>
-                <span class="tag">CSS Grid</span>
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Scikit-Learn</span>
+                <span class="tag">Data Preprocessing</span>
               </div>
               <div class="project-links">
-                <button class="btn-link view-modal-btn" data-project="gitmaster">
+                <button class="btn-link view-project-btn" data-project="mlanalysis">
                   <span>View Details</span>
                   <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
                 </button>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
-                  <span>Code</span>
+                <a href="https://github.com/k-sanat" target="_blank" rel="noopener noreferrer" class="btn-link">
+                  <span>My GitHub Profile</span>
                   <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Project 4 -->
-          <div class="project-card glass-panel" data-category="frontend">
+          <!-- Project 3: Freelance Poster & Social Media Media Design -->
+          <div class="project-card glass-panel" data-category="design">
             <div class="project-visual">
               <div class="project-mockup mockup-aura">
                 <div class="mockup-header">
                   <div class="mockup-dots"><span></span><span></span><span></span></div>
-                  <span class="mockup-url">auraui.design</span>
+                  <span class="mockup-url">creative_studio.canva</span>
                 </div>
                 <div class="mockup-body">
                   <div class="mockup-glass-elements">
@@ -635,33 +1023,285 @@
                   </div>
                 </div>
               </div>
+              <span class="project-badge">Freelance</span>
             </div>
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-category">UI / UX Design System</span>
-                <span class="project-year">2026</span>
+                <span class="project-category">Graphic Design & Social Media</span>
+                <span class="project-year">Canva & Digital Art</span>
               </div>
-              <h3 class="project-title">AuraUI: Glassmorphic Component Toolkit</h3>
+              <h3 class="project-title">Social Media Creatives & Brand Posters</h3>
               <p class="project-desc">
-                An open-source library of modern CSS & JS components engineered for modern dark interfaces, micro-animations, accessible focus rings, and zero dependencies.
+                Comprehensive creative graphic design projects executed for clients, including promotional Instagram posters, YouTube thumbnails, business flyers, and event banners.
               </p>
               <div class="project-tags">
-                <span class="tag">CSS Variables</span>
-                <span class="tag">Modern Design</span>
-                <span class="tag">Vanilla JS</span>
-                <span class="tag">Accessibility</span>
+                <span class="tag">Canva Pro</span>
+                <span class="tag">Typography</span>
+                <span class="tag">Social Media Creatives</span>
+                <span class="tag">Brand Identity</span>
               </div>
               <div class="project-links">
-                <button class="btn-link view-modal-btn" data-project="auraui">
+                <button class="btn-link view-project-btn" data-project="designmedia">
                   <span>View Details</span>
                   <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
                 </button>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
-                  <span>Code</span>
+                <a href="https://www.linkedin.com/in/sanat-freelancer" target="_blank" rel="noopener noreferrer" class="btn-link">
+                  <span>My LinkedIn Profile</span>
                   <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         INTERACTIVE RESUME GENERATOR & LIVE PDF EXPORTER
+         ======================================================== -->
+    <section class="section resume-builder-section" id="resume-builder">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">// 06. INSTANT CV / RESUME BUILDER</span>
+          <h2 class="section-title">Interactive Resume Generator</h2>
+          <p class="section-desc">
+            Automatically generated from your portfolio details. You can click <strong>"Edit Resume Text"</strong> to customize any line directly on the screen, then click <strong>"Print / Download PDF"</strong> to save a clean, professional 1-page document!
+          </p>
+          <div class="section-divider center"></div>
+        </div>
+
+        <!-- Resume Action Toolbar -->
+        <div class="resume-toolbar">
+          <button class="btn btn-primary" id="btn-print-resume">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+              <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Print / Save as PDF</span>
+          </button>
+
+          <button class="btn btn-secondary" id="btn-toggle-edit-mode">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+            </svg>
+            <span id="edit-mode-label">Enable Edit Mode (Click Text to Edit)</span>
+          </button>
+
+          <button class="btn btn-secondary" id="btn-reset-resume">
+            <span>Reset to Original</span>
+          </button>
+        </div>
+
+        <!-- Printable / Live Editable Resume Paper Container -->
+        <div class="resume-paper-wrap">
+          <div class="resume-paper" id="resume-document" contenteditable="false">
+            <!-- Header -->
+            <header class="resume-head">
+              <div class="resume-photo-block">
+                <img src="assets/images/profile.jpg" alt="Sanat Kumar Hansda" class="r-profile-photo">
+              </div>
+              <div class="resume-title-block">
+                <h1 class="r-name">SANAT KUMAR HANSDA</h1>
+                <p class="r-tagline">FREELANCER & CYBERSECURITY SCHOLAR (MCA)</p>
+              </div>
+              <div class="r-contact">
+                <p><strong>Phone / WhatsApp:</strong> +91 8122378449</p>
+                <p><strong>Email:</strong> hansdaworks@gmail.com</p>
+                <p><strong>Location:</strong> Dhalbhumgarh, Jharkhand, India</p>
+                <p><strong>LinkedIn:</strong> linkedin.com/in/sanat-freelancer</p>
+                <p><strong>GitHub:</strong> github.com/k-sanat</p>
+              </div>
+            </header>
+
+            <hr class="r-rule">
+
+            <!-- Profile Summary -->
+            <section class="r-section">
+              <h2 class="r-sec-title">PROFILE</h2>
+              <p class="r-summary">
+                I am a multi-skilled enthusiast who is highly motivated to adapt to new environments and technologies. I am passionate about learning, collaborating, and building innovative solutions, which makes me a positive and hardworking individual. I believe in timely delivery, clear communication, and maintaining high-quality standards in my work.
+              </p>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="r-columns">
+              <!-- Left Column: Education & Experience -->
+              <div class="r-col-main">
+                <section class="r-section">
+                  <h2 class="r-sec-title">EDUCATION</h2>
+                  
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>Manipal University</strong>
+                      <span class="r-date">2025 – Present</span>
+                    </div>
+                    <div class="r-item-sub">Master of Computer Applications (MCA) in Cybersecurity</div>
+                    <div class="r-item-meta">Focus: Network Defense, Cryptography, Ethical Hacking & Forensics</div>
+                  </div>
+
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>Mount Zion College of Engineering and Technology (Anna University)</strong>
+                      <span class="r-date">2021 – 2025</span>
+                    </div>
+                    <div class="r-item-sub">B.E. in Computer Science and Engineering | CGPA: 7.4</div>
+                  </div>
+
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>E.D. Thomas Memorial Higher Secondary School</strong>
+                      <span class="r-date">2019 – 2021</span>
+                    </div>
+                    <div class="r-item-sub">Senior Secondary (Class XII), Tamil Nadu State Board | CGPA: 8.5</div>
+                  </div>
+
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>Ramakrishna Vivekananda Sarada Vidyapith, Fulpal</strong>
+                      <span class="r-date">2018 – 2019</span>
+                    </div>
+                    <div class="r-item-sub">Secondary School (Class X), ICSE Board | CGPA: 7.1</div>
+                  </div>
+                </section>
+
+                <section class="r-section">
+                  <h2 class="r-sec-title">EXPERIENCE & INTERNSHIPS</h2>
+                  
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>Tech Intern — Istudio</strong>
+                      <span class="r-date">Oct 2026 – Present</span>
+                    </div>
+                    <div class="r-desc">
+                      6-month intensive industry internship focusing on system workflows, security foundations, and digital execution.
+                    </div>
+                  </div>
+
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>Freelance Designer & Data Entry Specialist — Self-Employed</strong>
+                      <span class="r-date">Jan 2026 – Present</span>
+                    </div>
+                    <div class="r-desc">
+                      Canva social media creative design, Resume/CV creation, data entry, typing, and MS Office tasks.
+                    </div>
+                  </div>
+
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>Machine Learning Intern — VCodez</strong>
+                      <span class="r-date">Mar 2025 – Jun 2025</span>
+                    </div>
+                    <div class="r-desc">
+                      Dataset analysis, data cleaning, and training predictive machine learning models in Python.
+                    </div>
+                  </div>
+
+                  <div class="r-item">
+                    <div class="r-item-head">
+                      <strong>Content Writer Intern — Magnion Technology</strong>
+                      <span class="r-date">Mar 2023 – May 2023</span>
+                    </div>
+                    <div class="r-desc">
+                      Researched tourist destinations across India, created high-retention content under tight deadlines.
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Right Column: Skills & Languages -->
+              <div class="r-col-side">
+                <section class="r-section">
+                  <h2 class="r-sec-title">SKILLS & TOOLS</h2>
+                  <ul class="r-bullet-list">
+                    <li>Canva & Graphic Design</li>
+                    <li>Poster & Social Media Design</li>
+                    <li>Resume & CV Creation</li>
+                    <li>Python Programming</li>
+                    <li>Machine Learning Basics</li>
+                    <li>Cybersecurity Principles</li>
+                    <li>Data Entry & Typing</li>
+                    <li>MS Word & MS Excel</li>
+                    <li>Client Communication</li>
+                  </ul>
+                </section>
+
+                <section class="r-section">
+                  <h2 class="r-sec-title">COURSES & CERTS</h2>
+                  <ul class="r-bullet-list">
+                    <li>LaunchEd: Cybersecurity</li>
+                    <li>Anna University: B.E. Degree</li>
+                    <li>VCodez: ML Internship Cert</li>
+                    <li>Istudio: 6-Month Intern</li>
+                  </ul>
+                </section>
+
+                <section class="r-section">
+                  <h2 class="r-sec-title">LANGUAGES</h2>
+                  <ul class="r-bullet-list">
+                    <li>English</li>
+                    <li>Hindi</li>
+                    <li>Santhali</li>
+                    <li>Bengali</li>
+                    <li>Tamil</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         INTERACTIVE CYBER CLI TERMINAL
+         ======================================================== -->
+    <section class="section terminal-section" id="terminal">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">// 07. CYBERSECURITY CLI ENGINE</span>
+          <h2 class="section-title">Interactive Terminal</h2>
+          <p class="section-desc">Type cybersecurity commands or click the shortcut chips below to query my credentials and profile.</p>
+          <div class="section-divider center"></div>
+        </div>
+
+        <div class="terminal-window glass-panel">
+          <div class="terminal-bar">
+            <div class="window-buttons">
+              <span class="win-btn close"></span>
+              <span class="win-btn minimize"></span>
+              <span class="win-btn expand"></span>
+            </div>
+            <div class="terminal-title">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h4a1 1 0 100-2h-4z" clip-rule="evenodd" />
+              </svg>
+              <span>sanat@cyber-vault: ~</span>
+            </div>
+            <button class="terminal-clear-btn" id="terminal-clear">Clear</button>
+          </div>
+
+          <div class="terminal-body" id="terminal-output">
+            <div class="term-line term-intro">Sanat Kumar Hansda // Cybersecurity & Engineering Terminal v3.0.0</div>
+            <div class="term-line term-hint">Type <span class="term-highlight">'help'</span> or click the quick command chips below.</div>
+            <div class="term-line">-----------------------------------------------------------------</div>
+          </div>
+
+          <div class="terminal-input-row">
+            <span class="term-prompt">sanat@cyber:~$</span>
+            <input type="text" id="terminal-input" class="term-input" placeholder="Type a command (e.g. education, certs, internships, contact)..." autocomplete="off" spellcheck="false">
+          </div>
+
+          <div class="terminal-quick-chips">
+            <span class="chips-label">Quick Commands:</span>
+            <button class="chip-btn" data-cmd="boot" style="color: var(--primary); border-color: var(--primary);">⚡ boot</button>
+            <button class="chip-btn" data-cmd="education">education</button>
+            <button class="chip-btn" data-cmd="internships">internships</button>
+            <button class="chip-btn" data-cmd="certs">certs</button>
+            <button class="chip-btn" data-cmd="cyber">cyber</button>
+            <button class="chip-btn" data-cmd="contact">contact</button>
+            <button class="chip-btn" data-cmd="skills">skills</button>
+            <button class="chip-btn" data-cmd="help">help</button>
+            <button class="chip-btn" data-cmd="clear">clear</button>
           </div>
         </div>
       </div>
@@ -673,57 +1313,78 @@
     <section class="section contact-section" id="contact">
       <div class="container">
         <div class="section-header text-center">
-          <span class="section-tag">// 05. REACH OUT</span>
-          <h2 class="section-title">Let's Connect & Build Together</h2>
-          <p class="section-desc">Have a question, an opportunity, or want to collaborate? My inbox is always open.</p>
+          <span class="section-tag">// 08. GET IN TOUCH</span>
+          <h2 class="section-title">Connect & Collaborate</h2>
+          <p class="section-desc">Available for freelance creative design, resume creation, and technical opportunities.</p>
           <div class="section-divider center"></div>
         </div>
 
         <div class="contact-grid">
-          <!-- Contact Info Left Column -->
+          <!-- Contact Channels Left Column -->
           <div class="contact-info glass-panel">
-            <h3 class="contact-subtitle">Get In Touch</h3>
+            <h3 class="contact-subtitle">Direct Communication</h3>
             <p class="contact-p">
-              Whether you are looking for a developer to join your team, need a modern website built, or just want to discuss tech, drop me a note!
+              Feel free to reach out directly via WhatsApp, direct phone call, or email. I respond promptly and look forward to discussing projects or opportunities.
             </p>
 
             <div class="contact-details">
-              <!-- Email Card -->
+              <!-- Phone / WhatsApp -->
               <div class="contact-item">
-                <div class="contact-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
-                </div>
+                <div class="contact-icon">📱</div>
                 <div class="contact-text">
-                  <span class="detail-label">Email</span>
+                  <span class="detail-label">Phone & WhatsApp</span>
                   <div class="email-copy-row">
-                    <span class="detail-val" id="email-address">alex.rivera.dev@example.com</span>
-                    <button class="copy-btn" id="copy-email-btn" title="Copy to clipboard">
-                      <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/><path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/></svg>
+                    <a href="https://wa.me/918122378449" target="_blank" rel="noopener noreferrer" class="detail-val link-accent">+91 8122378449</a>
+                    <a href="https://wa.me/918122378449" target="_blank" rel="noopener noreferrer" class="copy-btn" title="Open in WhatsApp">
+                      💬
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-text">
+                  <span class="detail-label">Email Address</span>
+                  <div class="email-copy-row">
+                    <a href="mailto:hansdaworks@gmail.com" class="detail-val link-accent" id="email-address">hansdaworks@gmail.com</a>
+                    <button class="copy-btn" id="copy-email-btn" title="Copy email address">
+                      📋
                       <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
                     </button>
                   </div>
                 </div>
               </div>
 
-              <!-- Location Card -->
+              <!-- LinkedIn Profile Button -->
               <div class="contact-item">
-                <div class="contact-icon">
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-                </div>
+                <div class="contact-icon">🔗</div>
                 <div class="contact-text">
-                  <span class="detail-label">Location</span>
-                  <span class="detail-val">San Francisco, CA (Open to Worldwide Remote)</span>
+                  <span class="detail-label">LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/sanat-freelancer" target="_blank" rel="noopener noreferrer" class="detail-val link-accent">
+                    My LinkedIn Profile
+                  </a>
                 </div>
               </div>
 
-              <!-- Response Time Badge -->
+              <!-- GitHub Profile Button -->
               <div class="contact-item">
-                <div class="contact-icon">
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-                </div>
+                <div class="contact-icon">🐙</div>
                 <div class="contact-text">
-                  <span class="detail-label">Response Time</span>
-                  <span class="detail-val">Within 24 Hours</span>
+                  <span class="detail-label">GitHub</span>
+                  <a href="https://github.com/k-sanat" target="_blank" rel="noopener noreferrer" class="detail-val link-accent">
+                    My GitHub Profile
+                  </a>
+                </div>
+              </div>
+
+              <!-- Location -->
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-text">
+                  <span class="detail-label">Location</span>
+                  <span class="detail-val">Dhalbhumgarh, Jharkhand, India</span>
                 </div>
               </div>
             </div>
@@ -734,36 +1395,34 @@
             <form id="contact-form" class="contact-form" novalidate>
               <div class="form-group">
                 <label for="form-name">Your Name <span class="required">*</span></label>
-                <input type="text" id="form-name" name="name" placeholder="John Doe" required>
+                <input type="text" id="form-name" name="name" placeholder="E.g. Priya Sharma" required>
                 <span class="field-error" id="error-name">Please enter your name.</span>
               </div>
 
               <div class="form-group">
                 <label for="form-email">Your Email <span class="required">*</span></label>
-                <input type="email" id="form-email" name="email" placeholder="john@example.com" required>
-                <span class="field-error" id="error-email">Please enter a valid email address.</span>
+                <input type="email" id="form-email" name="email" placeholder="priya@example.com" required>
+                <span class="field-error" id="error-email">Please enter a valid email.</span>
               </div>
 
               <div class="form-group">
                 <label for="form-subject">Subject</label>
-                <input type="text" id="form-subject" name="subject" placeholder="Project Inquiry / Job Opportunity">
+                <input type="text" id="form-subject" name="subject" placeholder="Project Inquiry / Job Opportunity / Freelance Design">
               </div>
 
               <div class="form-group">
                 <label for="form-message">Your Message <span class="required">*</span></label>
-                <textarea id="form-message" name="message" rows="5" placeholder="Tell me about your project, idea, or questions..." required></textarea>
+                <textarea id="form-message" name="message" rows="5" placeholder="Share your project requirements, timeline, or inquiries..." required></textarea>
                 <span class="field-error" id="error-message">Please enter a message (at least 10 characters).</span>
               </div>
 
               <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
                 <span>Send Message</span>
-                <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
               </button>
 
-              <!-- Form Success Feedback Box -->
               <div class="form-feedback hidden" id="form-feedback">
                 <span class="feedback-icon">🎉</span>
-                <p>Thank you! Your message has been received. I'll get back to you shortly.</p>
+                <p>Thank you! Your message has been prepared. I will connect with you promptly!</p>
               </div>
             </form>
           </div>
@@ -780,15 +1439,17 @@
       <div class="footer-left">
         <a href="#hero" class="brand-logo footer-logo">
           <span class="logo-bracket">&lt;</span>
-          <span class="logo-name">Alex</span>
-          <span class="logo-accent">.dev</span>
+          <span class="logo-name">Sanat Kumar Hansda</span>
+          <span class="logo-accent">.sec</span>
           <span class="logo-bracket">/&gt;</span>
         </a>
-        <p class="footer-tagline">Crafted with modern HTML5, CSS3 & JavaScript. Designed for high performance.</p>
+        <p class="footer-tagline">
+          Freelancer • MCA in Cybersecurity (Manipal University) • Computer Science & Engineering Graduate.
+        </p>
       </div>
 
       <div class="footer-right">
-        <p class="copyright">&copy; 2026 Alex Rivera. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 Sanat Kumar Hansda. All rights reserved.</p>
         <div class="footer-links">
           <a href="#hero">Back to Top ↑</a>
         </div>
@@ -797,7 +1458,7 @@
   </footer>
 
   <!-- ========================================================
-       PROJECT DETAIL MODAL (LIGHTBOX)
+       INTERACTIVE CERTIFICATE & PROJECT MODAL (LIGHTBOX)
        ======================================================== -->
   <div class="modal-backdrop" id="project-modal" aria-hidden="true" role="dialog">
     <div class="modal-dialog glass-panel">
@@ -808,8 +1469,8 @@
     </div>
   </div>
 
-  <!-- Toast Notification System -->
-  <div class="toast" id="toast">Message copied to clipboard!</div>
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
 
   <!-- Main JavaScript File -->
   <script src="script.js"></script>
