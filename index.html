@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Portfolio - Web Developer, Designer & Problem Solver. Explore my projects, skills, and get in touch.">
+  <meta name="keywords" content="Portfolio, Web Developer, Frontend, Full Stack, Software Engineer, JavaScript, Projects">
+  <meta name="author" content="Alex Rivera">
+
+  <!-- Open Graph / Social Sharing Metadata -->
+  <meta property="og:title" content="Alex Rivera | Developer Portfolio">
+  <meta property="og:description" content="Explore my projects, tech stack, and experience.">
+  <meta property="og:type" content="website">
+
+  <title>Alex Rivera | Creative Developer & Designer</title>
+
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="cyan">
+
+  <!-- Interactive Background Canvas (Constellation & Particle Mesh) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Background Ambient Glow Orbs -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- ========================================================
+       NAVIGATION BAR
+       ======================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">Alex</span>
+        <span class="logo-accent">.dev</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#terminal" class="nav-link">Terminal</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Controls: Theme Accent Picker & Mobile Hamburger -->
+      <div class="nav-actions">
+        <!-- Theme Color Picker Dots -->
+        <div class="theme-picker" title="Switch Accent Color">
+          <button class="color-dot dot-cyan active" data-color="cyan" aria-label="Cyan Theme"></button>
+          <button class="color-dot dot-violet" data-color="violet" aria-label="Violet Theme"></button>
+          <button class="color-dot dot-emerald" data-color="emerald" aria-label="Emerald Theme"></button>
+          <button class="color-dot dot-rose" data-color="rose" aria-label="Rose Theme"></button>
+        </div>
+
+        <a href="#contact" class="btn btn-sm btn-primary nav-cta">Let's Talk</a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================
+         HERO SECTION
+         ======================================================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <!-- Availability Beacon -->
+        <div class="badge-pill fade-in">
+          <span class="pulse-dot"></span>
+          <span>Available for New Projects & Roles</span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="hero-title fade-in">
+          Building Digital <span class="gradient-text">Experiences</span> With Passion & Precision.
+        </h1>
+
+        <!-- Typing Animation Subtitle -->
+        <div class="hero-typewriter fade-in">
+          <span class="type-prefix">I am a </span>
+          <span class="typed-text" id="typed-text"></span>
+          <span class="type-cursor">|</span>
+        </div>
+
+        <!-- Short Description -->
+        <p class="hero-desc fade-in">
+          Hi, I'm <strong class="text-white">Alex Rivera</strong>. A creative developer focused on crafting clean, accessible, and high-performance web applications with modern design systems and smooth user experiences.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-actions fade-in">
+          <a href="#projects" class="btn btn-primary">
+            <span>Explore Projects</span>
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="#terminal" class="btn btn-secondary">
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h4a1 1 0 100-2h-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Launch CLI</span>
+          </a>
+        </div>
+
+        <!-- Social Icons Bar -->
+        <div class="social-bar fade-in">
+          <span class="social-label">Connect:</span>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="mailto:alex.rivera.dev@example.com" class="social-link" aria-label="Email Me">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tech Stack Pill Ticker -->
+        <div class="tech-ticker-container fade-in">
+          <span class="ticker-heading">Core Tech:</span>
+          <div class="tech-badges">
+            <span class="tech-pill">JavaScript ES6+</span>
+            <span class="tech-pill">HTML5 & CSS3</span>
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">Tailwind CSS</span>
+            <span class="tech-pill">Git & GitHub</span>
+            <span class="tech-pill">REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         ABOUT SECTION
+         ======================================================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 01. ABOUT ME</span>
+          <h2 class="section-title">Turning Code Into Creative Solutions</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left: Profile Glass Card -->
+          <div class="about-visual">
+            <div class="profile-card glass-panel">
+              <div class="profile-avatar-wrap">
+                <!-- Visual Geometric Avatar Placeholder -->
+                <div class="avatar-glow"></div>
+                <div class="profile-avatar">
+                  <svg viewBox="0 0 120 120" class="avatar-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="56" stroke="var(--primary)" stroke-width="3" stroke-dasharray="6 6" />
+                    <circle cx="60" cy="45" r="22" fill="var(--primary-20)" stroke="var(--primary)" stroke-width="2.5" />
+                    <path d="M28 98C28 80.327 42.327 66 60 66C77.673 66 92 80.327 92 98" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" />
+                    <circle cx="60" cy="45" r="8" fill="var(--primary)" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="profile-meta">
+                <h3 class="profile-name">Alex Rivera</h3>
+                <p class="profile-role">Frontend & Full-Stack Developer</p>
+                <div class="location-badge">
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>San Francisco, CA / Remote</span>
+                </div>
+              </div>
+
+              <!-- Floating badge pills -->
+              <div class="floating-badge badge-top">
+                <span class="badge-icon">⚡</span>
+                <span>Fast Learner</span>
+              </div>
+              <div class="floating-badge badge-bottom">
+                <span class="badge-icon">🚀</span>
+                <span>Clean Code</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Bio & Stats Counter -->
+          <div class="about-content">
+            <h3 class="bio-title">Hello there! Welcome to my digital workspace.</h3>
+            <p class="bio-p">
+              I am a passionate software developer who enjoys building intuitive, accessible, and fast web applications. My journey started with a curiosity for how web pages work behind the scenes, which quickly evolved into building full-featured web applications.
+            </p>
+            <p class="bio-p">
+              I believe great software is where <strong>clean logic</strong> meets <strong>delightful user experience</strong>. Whether architecting interactive user interfaces or structuring robust back-end APIs, I focus on writing maintainable code and solving real problems.
+            </p>
+
+            <!-- Metrics Counter Bar -->
+            <div class="stats-grid">
+              <div class="stat-card glass-panel">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+              <div class="stat-card glass-panel">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Years Coding</div>
+              </div>
+              <div class="stat-card glass-panel">
+                <div class="stat-number" data-target="450">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Git Commits</div>
+              </div>
+              <div class="stat-card glass-panel">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-plus">%</div>
+                <div class="stat-label">Dedication</div>
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="about-actions">
+              <a href="#contact" class="btn btn-primary">Work With Me</a>
+              <a href="#projects" class="btn btn-secondary">Browse Work</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SKILLS SECTION
+         ======================================================== -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">// 02. TECHNICAL ARSENAL</span>
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-desc">Technologies and tools I use to bring ideas from concept to reality.</p>
+          <div class="section-divider center"></div>
+        </div>
+
+        <!-- Skills Filter Tabs -->
+        <div class="skills-tabs">
+          <button class="skill-tab-btn active" data-filter="all">All Skills</button>
+          <button class="skill-tab-btn" data-filter="frontend">Frontend</button>
+          <button class="skill-tab-btn" data-filter="backend">Backend & DB</button>
+          <button class="skill-tab-btn" data-filter="tools">Tools & DevOps</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid" id="skills-grid">
+          <!-- Skill 1 -->
+          <div class="skill-card glass-panel" data-category="frontend">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">🌐</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">HTML5 & Semantic Web</h4>
+              <p class="skill-level">Advanced</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 2 -->
+          <div class="skill-card glass-panel" data-category="frontend">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">🎨</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">CSS3 & Modern Animations</h4>
+              <p class="skill-level">Advanced (Flexbox, Grid, Canvas)</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 90%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 3 -->
+          <div class="skill-card glass-panel" data-category="frontend">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">⚡</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">JavaScript (ES6+)</h4>
+              <p class="skill-level">Proficient (Async, DOM, APIs)</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 4 -->
+          <div class="skill-card glass-panel" data-category="frontend">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">⚛️</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">React & Component Architecture</h4>
+              <p class="skill-level">Intermediate / Advanced</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 82%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 5 -->
+          <div class="skill-card glass-panel" data-category="backend">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">🟢</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">Node.js & Express</h4>
+              <p class="skill-level">Intermediate (REST APIs, Auth)</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 78%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 6 -->
+          <div class="skill-card glass-panel" data-category="backend">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">🗄️</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">Databases (SQL & NoSQL)</h4>
+              <p class="skill-level">PostgreSQL, SQLite, MongoDB</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 7 -->
+          <div class="skill-card glass-panel" data-category="tools">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">🐙</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">Git & GitHub</h4>
+              <p class="skill-level">Version Control, Branching, CI</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 8 -->
+          <div class="skill-card glass-panel" data-category="tools">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">🚀</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">Deployment & Hosting</h4>
+              <p class="skill-level">GitHub Pages, Netlify, Vercel</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 9 -->
+          <div class="skill-card glass-panel" data-category="frontend">
+            <div class="skill-icon-wrap">
+              <span class="skill-icon">📱</span>
+            </div>
+            <div class="skill-info">
+              <h4 class="skill-name">Responsive & Mobile Design</h4>
+              <p class="skill-level">Cross-browser & Viewport Testing</p>
+            </div>
+            <div class="skill-progress">
+              <div class="skill-bar" style="width: 92%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         INTERACTIVE TERMINAL / CLI PLAYGROUND
+         ======================================================== -->
+    <section class="section terminal-section" id="terminal">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">// 03. INTERACTIVE CLI</span>
+          <h2 class="section-title">Developer Terminal</h2>
+          <p class="section-desc">Test drive my interactive terminal right from your browser. Type a command or click a chip below.</p>
+          <div class="section-divider center"></div>
+        </div>
+
+        <!-- Terminal Window Mockup -->
+        <div class="terminal-window glass-panel">
+          <!-- Terminal Title Bar -->
+          <div class="terminal-bar">
+            <div class="window-buttons">
+              <span class="win-btn close"></span>
+              <span class="win-btn minimize"></span>
+              <span class="win-btn expand"></span>
+            </div>
+            <div class="terminal-title">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h4a1 1 0 100-2h-4z" clip-rule="evenodd" />
+              </svg>
+              <span>guest@alex-rivera-portfolio: ~</span>
+            </div>
+            <button class="terminal-clear-btn" id="terminal-clear" title="Clear Terminal">Clear</button>
+          </div>
+
+          <!-- Terminal Output Body -->
+          <div class="terminal-body" id="terminal-output">
+            <div class="term-line term-intro">Welcome to Alex's interactive CLI portfolio v2.4.0.</div>
+            <div class="term-line term-hint">Type <span class="term-highlight">'help'</span> to see available commands or click the shortcut chips below!</div>
+            <div class="term-line">---------------------------------------------------------</div>
+          </div>
+
+          <!-- Terminal Input Row -->
+          <div class="terminal-input-row">
+            <span class="term-prompt">alex@portfolio:~$</span>
+            <input type="text" id="terminal-input" class="term-input" placeholder="Type a command (e.g. help, skills, projects)..." autocomplete="off" spellcheck="false">
+          </div>
+
+          <!-- Preset Clickable Command Chips -->
+          <div class="terminal-quick-chips">
+            <span class="chips-label">Quick Commands:</span>
+            <button class="chip-btn" data-cmd="about">about</button>
+            <button class="chip-btn" data-cmd="skills">skills</button>
+            <button class="chip-btn" data-cmd="projects">projects</button>
+            <button class="chip-btn" data-cmd="contact">contact</button>
+            <button class="chip-btn" data-cmd="help">help</button>
+            <button class="chip-btn" data-cmd="clear">clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FEATURED PROJECTS SECTION
+         ======================================================== -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 04. PORTFOLIO WORK</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-desc">A selection of recent projects demonstrating problem solving, responsive UI, and clean architectures.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="frontend">Frontend / UI</button>
+          <button class="filter-btn" data-filter="tools">Dev Tools</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card glass-panel" data-category="fullstack">
+            <div class="project-visual">
+              <div class="project-mockup mockup-task">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <span class="mockup-url">devflow-app.local</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mockup-kanban">
+                    <div class="kanban-col"><div class="kanban-card"></div><div class="kanban-card"></div></div>
+                    <div class="kanban-col"><div class="kanban-card highlight"></div></div>
+                    <div class="kanban-col"><div class="kanban-card"></div></div>
+                  </div>
+                </div>
+              </div>
+              <span class="project-badge">Featured</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">Full-Stack Web App</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">DevFlow: Agile Kanban & Workflow Hub</h3>
+              <p class="project-desc">
+                A collaborative task management application featuring drag-and-drop workflow boards, milestone tracking, and state persistence with real-time feedback.
+              </p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Local Storage</span>
+              </div>
+              <div class="project-links">
+                <button class="btn-link view-modal-btn" data-project="devflow">
+                  <span>View Details</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
+                  <span>Code</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card glass-panel" data-category="frontend">
+            <div class="project-visual">
+              <div class="project-mockup mockup-weather">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <span class="mockup-url">weather-pulse.io</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mockup-weather-content">
+                    <div class="weather-temp">72°F</div>
+                    <div class="weather-sun">☀️</div>
+                    <div class="weather-bars"><span></span><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">Frontend & API Integration</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">WeatherPulse: Live Meteorological Dashboard</h3>
+              <p class="project-desc">
+                Real-time weather tracking application with interactive geolocation search, dynamic background atmosphere changes, 7-day forecasting, and UV index meters.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML5 / CSS3</span>
+                <span class="tag">Async JavaScript</span>
+                <span class="tag">Weather API</span>
+                <span class="tag">Chart.js</span>
+              </div>
+              <div class="project-links">
+                <button class="btn-link view-modal-btn" data-project="weatherpulse">
+                  <span>View Details</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
+                  <span>Code</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card glass-panel" data-category="tools">
+            <div class="project-visual">
+              <div class="project-mockup mockup-code">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <span class="mockup-url">gitmaster-cli.sh</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mockup-code-lines">
+                    <span class="code-line"><span class="c-kw">$</span> git init</span>
+                    <span class="code-line"><span class="c-str">Initialized empty repository</span></span>
+                    <span class="code-line"><span class="c-kw">$</span> git status <span class="c-fn">--short</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">Developer Tooling</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">GitMaster: Git Workflow & Cheatsheet GUI</h3>
+              <p class="project-desc">
+                An interactive visual guide and sandbox that visualizes Git branches, commits, merges, and rebases in real-time to help beginners master version control.
+              </p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">SVG Visualizer</span>
+                <span class="tag">Git CLI</span>
+                <span class="tag">CSS Grid</span>
+              </div>
+              <div class="project-links">
+                <button class="btn-link view-modal-btn" data-project="gitmaster">
+                  <span>View Details</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
+                  <span>Code</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card glass-panel" data-category="frontend">
+            <div class="project-visual">
+              <div class="project-mockup mockup-aura">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <span class="mockup-url">auraui.design</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mockup-glass-elements">
+                    <div class="mini-btn"></div>
+                    <div class="mini-toggle"></div>
+                    <div class="mini-card"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">UI / UX Design System</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">AuraUI: Glassmorphic Component Toolkit</h3>
+              <p class="project-desc">
+                An open-source library of modern CSS & JS components engineered for modern dark interfaces, micro-animations, accessible focus rings, and zero dependencies.
+              </p>
+              <div class="project-tags">
+                <span class="tag">CSS Variables</span>
+                <span class="tag">Modern Design</span>
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">Accessibility</span>
+              </div>
+              <div class="project-links">
+                <button class="btn-link view-modal-btn" data-project="auraui">
+                  <span>View Details</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-link" aria-label="GitHub Repo">
+                  <span>Code</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CONTACT SECTION
+         ======================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">// 05. REACH OUT</span>
+          <h2 class="section-title">Let's Connect & Build Together</h2>
+          <p class="section-desc">Have a question, an opportunity, or want to collaborate? My inbox is always open.</p>
+          <div class="section-divider center"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Left Column -->
+          <div class="contact-info glass-panel">
+            <h3 class="contact-subtitle">Get In Touch</h3>
+            <p class="contact-p">
+              Whether you are looking for a developer to join your team, need a modern website built, or just want to discuss tech, drop me a note!
+            </p>
+
+            <div class="contact-details">
+              <!-- Email Card -->
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="detail-label">Email</span>
+                  <div class="email-copy-row">
+                    <span class="detail-val" id="email-address">alex.rivera.dev@example.com</span>
+                    <button class="copy-btn" id="copy-email-btn" title="Copy to clipboard">
+                      <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/><path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/></svg>
+                      <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Location Card -->
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="detail-label">Location</span>
+                  <span class="detail-val">San Francisco, CA (Open to Worldwide Remote)</span>
+                </div>
+              </div>
+
+              <!-- Response Time Badge -->
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="detail-label">Response Time</span>
+                  <span class="detail-val">Within 24 Hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Right Column -->
+          <div class="contact-form-wrap glass-panel">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="form-name">Your Name <span class="required">*</span></label>
+                <input type="text" id="form-name" name="name" placeholder="John Doe" required>
+                <span class="field-error" id="error-name">Please enter your name.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email">Your Email <span class="required">*</span></label>
+                <input type="email" id="form-email" name="email" placeholder="john@example.com" required>
+                <span class="field-error" id="error-email">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject">Subject</label>
+                <input type="text" id="form-subject" name="subject" placeholder="Project Inquiry / Job Opportunity">
+              </div>
+
+              <div class="form-group">
+                <label for="form-message">Your Message <span class="required">*</span></label>
+                <textarea id="form-message" name="message" rows="5" placeholder="Tell me about your project, idea, or questions..." required></textarea>
+                <span class="field-error" id="error-message">Please enter a message (at least 10 characters).</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
+                <span>Send Message</span>
+                <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+              </button>
+
+              <!-- Form Success Feedback Box -->
+              <div class="form-feedback hidden" id="form-feedback">
+                <span class="feedback-icon">🎉</span>
+                <p>Thank you! Your message has been received. I'll get back to you shortly.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <a href="#hero" class="brand-logo footer-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">Alex</span>
+          <span class="logo-accent">.dev</span>
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-tagline">Crafted with modern HTML5, CSS3 & JavaScript. Designed for high performance.</p>
+      </div>
+
+      <div class="footer-right">
+        <p class="copyright">&copy; 2026 Alex Rivera. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#hero">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       PROJECT DETAIL MODAL (LIGHTBOX)
+       ======================================================== -->
+  <div class="modal-backdrop" id="project-modal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog glass-panel">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-content" id="modal-body">
+        <!-- Dynamically injected by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast" id="toast">Message copied to clipboard!</div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
