@@ -1415,7 +1415,7 @@ function initContactForm() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let isValid = true;
 
@@ -1442,22 +1442,49 @@ function initContactForm() {
 
     if (!isValid) return;
 
+    const endpoint = form.getAttribute('action');
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = `<span>Sending...</span>`;
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      submitBtn.innerHTML = originalBtnText;
-      submitBtn.disabled = false;
-      feedback.classList.remove('hidden');
-      form.reset();
+    // Real submission if an action endpoint is configured (e.g. Formspree)
+    if (endpoint && endpoint.startsWith('http')) {
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
 
-      showToast('Message received! Thank you.');
-
+        if (response.ok) {
+          feedback.classList.remove('hidden');
+          form.reset();
+          showToast('Message sent! I will reply to your email promptly.');
+        } else {
+          showToast('Error sending message. Please try again or reach out on WhatsApp.');
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        showToast('Network error. Feel free to message me directly on WhatsApp!');
+      } finally {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        setTimeout(() => feedback.classList.add('hidden'), 6000);
+      }
+    } else {
+      // Simulated fallback mode when no endpoint is configured
       setTimeout(() => {
-        feedback.classList.add('hidden');
-      }, 5000);
-    }, 900);
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        feedback.classList.remove('hidden');
+        form.reset();
+        showToast('Demo submission recorded! Connect Formspree for inbox delivery.');
+        setTimeout(() => feedback.classList.add('hidden'), 5000);
+      }, 900);
+    }
   });
 }
 
